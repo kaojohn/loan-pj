@@ -40,7 +40,6 @@ button:active {
 
 #container {
     text-align: center;
-    text-size-adjust: 30px;
 }
 
 #reset {
@@ -50,4 +49,13 @@ button:active {
 
 #reset:active {
     background-color: #002ead;
+}
+
+#result {
+    display: none;
+    width: 350px;
+    margin: 16px auto;
+    background-color: rgb(135, 222, 216);
+    padding: 16px;
+    border-radius: 6px;
 }
