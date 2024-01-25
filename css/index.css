@@ -1,0 +1,53 @@
+body {
+    background-color: cornsilk;
+}
+
+form {
+    background-color: darkkhaki;
+    width: 350px;
+    margin: 0 auto;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 2px 2px rgb(203, 200, 157);
+}
+
+button {
+    width: 90px;
+    border: 0px;
+    height: 24px;
+    border-radius: 3px;
+    margin: 0 3px;
+    background-color: darkseagreen;
+    outline-color: rgb(225, 224, 218);
+    outline-style: solid;
+}
+
+
+button:active {
+    background-color: #002ead;
+}
+
+
+.lift {
+    margin: 6px auto;
+    text-align: left;
+    display: inline-block;
+}
+
+.title {
+    color: darkblue;
+}
+
+#container {
+    text-align: center;
+    text-size-adjust: 30px;
+}
+
+#reset {
+    background-color: brown;
+    color: aliceblue;
+}
+
+#reset:active {
+    background-color: #002ead;
+}
