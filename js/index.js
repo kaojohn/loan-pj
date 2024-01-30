@@ -6,10 +6,10 @@ const repayment1E1 = document.querySelector("#repayment1");
 const repayment2E1 = document.querySelector("#repayment2");
 
 const calcE1 = document.querySelector("#calc");
-
-console.log(amountE1, yearsE1, rateE1, feeE1, repayment1E1, repayment2E1);
+const resetE1 = document.querySelector("#reset");
 
 calcE1.addEventListener("click", calcLoan);
+resetE1.addEventListener("click", reset);
 
 function calcLoan() {
     let amount = amountE1.value * 10000;
@@ -25,7 +25,7 @@ function calcLoan() {
     let totalAmount = amount + totalInterest + fee;
 
     document.querySelector(".totalAmount").innerText = totalAmount / 10000 + (fee / 10000 == 0 ? "" : "(含手續費)") + "萬元";
-    document.querySelector(".totalInterest").innerText = totalInterest;
+    document.querySelector(".totalInterest").innerText = totalInterest / 10000 + "萬元";
 
     const resultE1 = document.querySelector("#result");
     setTimeout(function () { resultE1.style.display = "block"; }, 500);
@@ -33,6 +33,11 @@ function calcLoan() {
 
 }
 
-// function reset() {
+function reset() {
+    alert("清除完成!")
+    amountE1.value = 0;
+    rateE1.value = 0;
+    const resultE1 = document.querySelector("#result");
+    setTimeout(function () { resultE1.style.display = "none"; }, 0);
 
-// }
+}

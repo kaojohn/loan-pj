@@ -42,6 +42,10 @@ button:active {
     text-align: center;
 }
 
+.containertw {
+    text-align: center;
+}
+
 #reset {
     background-color: brown;
     color: aliceblue;
@@ -58,4 +62,5 @@ button:active {
     background-color: rgb(135, 222, 216);
     padding: 16px;
     border-radius: 6px;
+    text-align: center;
 }
