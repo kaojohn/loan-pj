@@ -4,6 +4,8 @@ const rateE1 = document.querySelector("#rate");
 const feeE1 = document.querySelector("#fee");
 const repayment1E1 = document.querySelector("#repayment1");
 const repayment2E1 = document.querySelector("#repayment2");
+const tableE1 = document.querySelector("#table tbody");
+
 
 const calcE1 = document.querySelector("#calc");
 const resetE1 = document.querySelector("#reset");
@@ -24,7 +26,8 @@ function calcLoan() {
         result = rule1(amount, years, rate);
         console.log(result);
     } else {
-
+        alert(敬請期待)
+        return;
     }
     // 總利息
     let totalInterest = result[1];
@@ -38,7 +41,7 @@ function calcLoan() {
     const resultE1 = document.querySelector("#result");
     setTimeout(function () { resultE1.style.display = "block"; }, 500);
 
-
+    drawTable(result[0]);
 }
 
 function reset() {
@@ -47,6 +50,8 @@ function reset() {
     rateE1.value = 0;
     const resultE1 = document.querySelector("#result");
     setTimeout(function () { resultE1.style.display = "none"; }, 0);
+    drawTable("");
+
 
 }
 
@@ -73,4 +78,25 @@ function rule1(total_amount, years, rate) {
     }
     console.log(datas);
     return [datas, totalInterest];
+}
+
+function drawTable(datas) {
+    let tableStr = "";
+    for (let i = 0; i < datas.length; i++) {
+        tableStr += "<tr>";
+        for (let j = 0; j < datas[i].length; j++) {
+            tableStr += `<td>${datas[i][j]}</td>`;
+
+        }
+        tableStr += "</tr>";
+    }
+    tableE1.innerHTML = tableStr;
+    // let tableStr = "<ul>";
+    // for (let i = 0; i < datas.length; i++) {
+    //     console.log(datas[i].join(","));
+    //     tableStr += `<li>${datas[i].join(",")}</li>`;
+    // }
+
+    // tableStr += "</ul>";
+    // tableE1.innerHTML = tableStr;
 }

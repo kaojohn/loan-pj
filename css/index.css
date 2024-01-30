@@ -64,3 +64,29 @@ button:active {
     border-radius: 6px;
     text-align: center;
 }
+
+#table {
+    text-align: center;
+}
+
+table {
+    width: 85%;
+    margin: 6px auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: darkorange;
+    border: 1px solid green;
+    font-size: 18px;
+}
+
+td {
+    border: 1px solid black;
+    padding: 6px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: bisque;
+}
