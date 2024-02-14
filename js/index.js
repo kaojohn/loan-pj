@@ -5,8 +5,6 @@ const feeE1 = document.querySelector("#fee");
 const repayment1E1 = document.querySelector("#repayment1");
 const repayment2E1 = document.querySelector("#repayment2");
 const tableE1 = document.querySelector("#table tbody");
-
-
 const calcE1 = document.querySelector("#calc");
 const resetE1 = document.querySelector("#reset");
 
@@ -25,6 +23,8 @@ function calcLoan() {
     if (rule == 1) {
         result = rule1(amount, years, rate);
         console.log(result);
+    } else if (rule == 2) {
+        result = rule2(amount, years, rate);
     } else {
         alert(敬請期待)
         return;
@@ -79,6 +79,38 @@ function rule1(total_amount, years, rate) {
     console.log(datas);
     return [datas, totalInterest];
 }
+
+function rule2(total_amount, years, rate) {
+    let amount = total_amount;
+    let period = years * 12;
+    //let month_pay = parseInt(amount / period);
+    let month_rate = rate / 100 / 12;
+    let totalInterest = 0;
+    let da = (1 + month_rate) ** period;
+    let month_payrate = (da * month_rate) / (da - 1);
+    let month_paytoto = Math.round(amount * month_payrate);
+    let datas = [];
+
+    for (let i = 0; i < period; i++) {
+        interest = Math.round(amount * month_rate)
+        month_pay = month_paytoto - interest
+        amount -= month_pay
+
+        if (i == period - 1) {
+            datas.push([i + 1, month_pay + amount, interest, month_paytoto + amount, 0]);
+        } else {
+
+            datas.push([i + 1, month_pay, interest, month_paytoto, amount]);
+        }
+        totalInterest += interest;
+
+    }
+    console.log(datas);
+    return [datas, totalInterest]
+
+}
+
+
 
 function drawTable(datas) {
     let tableStr = "";
